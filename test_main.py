@@ -57,4 +57,12 @@ def convert_list_to_array(node: ListNode) -> list:
 
 
 def test_add_two_numbers() -> None:
-    assert False
+    test_cases = use_cases + edge_cases
+    test_cases_results = use_cases_results + edge_cases_result
+    for i in range(len(test_cases)):
+        l1_array, l2_array = test_cases[i]
+        l1 = convert_array_to_list(l1_array)
+        l2 = convert_array_to_list(l2_array)
+        result_list = add_two_numbers(l1, l2)
+        result_array = convert_list_to_array(result_list)
+        assert result_array == test_cases_results[i]
