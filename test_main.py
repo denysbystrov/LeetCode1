@@ -66,3 +66,16 @@ def test_add_two_numbers() -> None:
         result_list = add_two_numbers(l1, l2)
         result_array = convert_list_to_array(result_list)
         assert result_array == test_cases_results[i]
+
+
+use_cases_substring = ['abceabcebb', 'abccccccde', 'aaaaaaaa', 'pwwkew']
+
+use_cases_substring_result = [4, 3, 1, 3]
+
+edge_cases_substring = ['a', '']
+
+edge_cases_substring_result = [1, 0]
+
+
+def test_length_of_longest_substring() -> None:
+    assert True

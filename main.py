@@ -36,7 +36,7 @@ def add_two_numbers(l1: ListNode, l2: ListNode) -> ListNode:
 
     while l2 is not None:
         s = l2.val + carry
-        digit = s%10
+        digit = s % 10
         new_node = ListNode(digit)
         if current_node is not None:
             current_node.next = new_node
@@ -50,5 +50,11 @@ def add_two_numbers(l1: ListNode, l2: ListNode) -> ListNode:
         new_node = ListNode(carry)
         current_node.next = new_node
 
-
     return result
+
+
+"""Number 3: Longest Substring without repeating characters"""
+
+
+def length_of_longest_substring(s: str) -> int:
+    return 0
