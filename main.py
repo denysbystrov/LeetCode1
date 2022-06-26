@@ -57,4 +57,21 @@ def add_two_numbers(l1: ListNode, l2: ListNode) -> ListNode:
 
 
 def length_of_longest_substring(s: str) -> int:
-    return 0
+    character_hash_table = {}
+    longest_length = 0
+    current_total = 0
+    for i in range(len(s)):
+        c = s[i]
+        if c in character_hash_table:
+            if current_total > longest_length:
+                longest_length = current_total
+            character_hash_table = {c: 0}
+            current_total = 1
+        else:
+            character_hash_table[c] = 0
+            current_total += 1
+
+    if current_total > longest_length:
+        longest_length = current_total
+
+    return longest_length
