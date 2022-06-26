@@ -1,5 +1,5 @@
-from main import add_two_numbers
-from main import ListNode
+import pytest
+from main import *
 
 use_cases = (
     ([3, 2, 1], [6, 5, 4]),
@@ -68,14 +68,15 @@ def test_add_two_numbers() -> None:
         assert result_array == test_cases_results[i]
 
 
-use_cases_substring = ['abceabcebb', 'abccccccde', 'aaaaaaaa', 'pwwkew']
+use_cases_substring = (('abceabcebb', 4),
+                       ('abccccccde', 3),
+                       ('aaaaaaaa', 1),
+                       ('pwwkew', 3))
 
-use_cases_substring_result = [4, 3, 1, 3]
-
-edge_cases_substring = ['a', '']
-
-edge_cases_substring_result = [1, 0]
+edge_cases_substring = (('a', 1),
+                        ('0', 1))
 
 
-def test_length_of_longest_substring() -> None:
-    assert True
+@pytest.mark.parametrize(('input_x', 'expected'), use_cases_substring+edge_cases_substring)
+def test_length_of_longest_substring(input_x, expected) -> None:
+    assert length_of_longest_substring(input_x) == expected
