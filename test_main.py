@@ -71,7 +71,8 @@ def convert_list_to_array(node: ListNode) -> list:
 use_cases_substring = (('abceabcebb', 4),
                        ('abccccccde', 3),
                        ('aaaaaaaa', 1),
-                       ('pwwkew', 3))
+                       ('pwwkew', 3),
+                       ('dvdf', 3))
 
 edge_cases_substring = (('a', 1),
                         ('', 0))
