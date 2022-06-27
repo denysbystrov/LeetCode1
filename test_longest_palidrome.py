@@ -1,5 +1,5 @@
 import pytest
-import longest_palidrome
+from longest_palidrome import *
 
 use_cases = (
     ('edfabccbaghgj', 'abccba'),
@@ -12,5 +12,6 @@ edge_cases = (
 )
 
 
-def test_longest_palindrome():
-    assert False
+@pytest.mark.parametrize(('input_x', 'expected'), use_cases+edge_cases)
+def test_longest_palindrome(input_x, expected):
+    assert longest_palindrome(input_x) == expected
