@@ -1,7 +1,7 @@
 import pytest
 from square_roor import *
 
-use_case = (
+use_cases = (
     (16, 4),
     (8, 2)
 )
@@ -12,5 +12,6 @@ test_cases = (
 )
 
 
-def test_my_sqrt():
-    assert False
+@pytest.mark.parametrize(('input_x', 'expected'), use_cases+test_cases)
+def test_my_sqrt(input_x, expected):
+    assert my_sqrt(input_x) == expected
