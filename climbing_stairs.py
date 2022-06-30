@@ -1,14 +1,14 @@
 """Number 70: Climbing Stairs"""
-import math
+
+"Solving Problem using memoization"
+"Key: n, value: number of combinations"
 
 
 def climb_stairs(n: int) -> int:
-    num_twos = int(n/2)
-    total_ways = 0
-    for i in range(1, num_twos+1):
-        j = n - 2*i
-        combinations = math.factorial(i+j)/(math.factorial(i)*math.factorial(j))
-        print(combinations)
-        total_ways += combinations
+    memo = {1: 1, 2: 2}
+    count = 3
+    while n not in memo:
+        memo[count] = memo[count-1] + memo[count-2]
+        count += 1
 
-    return total_ways+1
+    return memo[n]
