@@ -13,5 +13,6 @@ edge_cases = (
 )
 
 
-def test_climb_stairs():
-    assert False
+@pytest.mark.parametrize(('input_x', 'expected'), use_cases+edge_cases)
+def test_climb_stairs(input_x, expected):
+    assert climb_stairs(input_x) == expected
