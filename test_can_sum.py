@@ -1,4 +1,5 @@
 import pytest
+from can_sum import can_sum
 
 use_cases = (
     (10, [1, 2, 4, 8], True),
@@ -11,5 +12,6 @@ edge_cases = (
 )
 
 
-def test_can_sum():
-    assert False
+@pytest.mark.parametrize(('lhs', 'rhs', 'expected'), use_cases+edge_cases)
+def test_can_sum(lhs, rhs, expected):
+    assert can_sum(lhs, rhs) == expected
