@@ -3,12 +3,13 @@ from can_sum import can_sum
 
 use_cases = (
     (10, [1, 2, 4, 8], True),
-    (8, [3, 4, 5, 6], False)
+    (8, [3, 4, 5, 6], True),
+    (7, [2, 4], False)
 )
 
 edge_cases = (
     (1, [1], True),
-    (1, [0], False)
+    (1, [2], False)
 )
 
 
