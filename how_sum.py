@@ -2,18 +2,22 @@
 of any combination that adds up to targetSum. If there is no such combination is returns null."""
 
 
-def how_sum(target_sum: int, numbers: list):
+def how_sum(target_sum: int, numbers: list, memo={}):
     if target_sum == 0:
         return []
     if target_sum < 0:
         return None
+    if target_sum in memo:
+        return memo[target_sum]
 
     for num in numbers:
-        val = how_sum(target_sum-num, numbers)
+        val = how_sum(target_sum-num, numbers, memo)
         if val is not None:
-            return [num] + val
+            memo[target_sum] = [num] + val
+            return memo[target_sum]
 
+    memo[target_sum] = None
     return None
 
 
-print(how_sum(7, [2, 4]))
+print(how_sum(300, [2, 4]))
