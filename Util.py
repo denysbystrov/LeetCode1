@@ -1,3 +1,4 @@
+from typing import List
 
 
 class ListNode:
@@ -28,3 +29,17 @@ def convert_list_to_array(node: ListNode) -> list:
         current_node = current_node.next
 
     return num_array
+
+
+def check_two_arrays_equivalent(array1: List, array2: List) -> bool:
+    for i in array1:
+        matched = False
+        for j in array2:
+            if i.sort() == j.sort():
+                matched = True
+                array2.remove(j)
+
+        if not matched:
+            return False
+
+    return len(array2) == 0
