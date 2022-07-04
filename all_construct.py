@@ -5,6 +5,8 @@ from typing import List
 
 def all_construct(target_string: str, word_bank: List[str]) -> List:
 
+    memo = {}
+
     def add_word_to_array(array: List, w: str) -> None:
         for i in range(len(array)):
             array[i].append(w)
@@ -19,6 +21,8 @@ def all_construct(target_string: str, word_bank: List[str]) -> List:
         return True
 
     def count_construct_rec(i):
+        if i in memo:
+            return memo[i]
         if i == len(target_string):
             return [[]]
         if i > len(target_string):
@@ -32,6 +36,7 @@ def all_construct(target_string: str, word_bank: List[str]) -> List:
                     add_word_to_array(previous_array, w)
                     return_array += previous_array
 
+        memo[i] = return_array
         return return_array
 
     return count_construct_rec(0)
