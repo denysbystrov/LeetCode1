@@ -4,6 +4,7 @@ from typing import List
 
 
 def count_construct(target_sring: str, word_bank: List[str]) -> int:
+    memo = {}
 
     def word_is_prefix(word, i):
         if len(word) + i > len(target_sring):
@@ -15,6 +16,8 @@ def count_construct(target_sring: str, word_bank: List[str]) -> int:
         return True
 
     def count_construct_rec(i):
+        if i in memo:
+            return memo[i]
         if i == len(target_sring):
             return 1
         if i > len(target_sring):
@@ -25,6 +28,7 @@ def count_construct(target_sring: str, word_bank: List[str]) -> int:
             if word_is_prefix(w, i):
                 total += count_construct_rec(i+len(w))
 
+        memo[i] = total
         return total
 
     return count_construct_rec(0)
