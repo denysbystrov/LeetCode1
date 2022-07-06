@@ -1,5 +1,6 @@
 import pytest
 from merge_lists import merge
+from Util import pad_zeros_list
 
 
 use_cases = (
@@ -17,5 +18,8 @@ edge_cases = (
 @pytest.mark.parametrize(('nums1', 'nums2', 'expected'), use_cases+edge_cases)
 def test_merge(nums1, nums2, expected):
     result = nums1
-    merge(result, len(nums1), nums2, len(nums2))
+    n = len(nums1)
+    pad_zeros_list(result, len(nums2))
+    print(result)
+    merge(result, n, nums2, len(nums2))
     assert result == expected
